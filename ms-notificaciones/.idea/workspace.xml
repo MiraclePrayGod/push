@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f77c7ad2-4401-49e5-8d77-1046bc3eabc6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../config-data/dp-licencias.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-data/ms-gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/ms-gateway-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/MsAuthApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/controller/AuthUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/dto/AuthUserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/entity/AuthUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/entity/TokenDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/repository/AuthUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/security/JwtProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/security/PasswordEncoderConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/security/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-auth/src/main/java/com/example/msauth/service/AuthUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pdcliente/PdClienteApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pdcliente/controller/ClienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pdcliente/entity/Cliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pdcliente/exception/GlobalException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pdcliente/repository/ClienteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pdcliente/service/ClienteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pdcliente/service/impl/ClienteServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/pdcliente/PdClienteApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/controller/PagoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/src/main/java/com/example/mspago/controller/PagoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/mspago/feign/VentaFeign.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/mspago/feign/VentaFeign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/mspago/service/impl/PagoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-pago/target/classes/com/example/mspago/service/impl/PagoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/controller/VentaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ClienteFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/feign/ClienteFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/repository/VentaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/VentaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ms-venta/src/main/java/org/example/msventa/service/impl/VentaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tecnoventas-front" beforeDir="false" afterPath="$PROJECT_DIR$/../tecnoventas-front" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2xJfxqSY7llQjMJosQYPBkIY1JS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.PdClienteApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/oficial examen dad 2025/proyectodad/ms-notificaciones&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;4961c02f8d2657b2155cb731f10d728e&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="PdClienteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="pd-cliente" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.pdcliente.PdClienteApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f77c7ad2-4401-49e5-8d77-1046bc3eabc6" name="Changes" comment="" />
+      <created>1747661350171</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747661350171</updated>
+      <workItem from="1747661352904" duration="7570000" />
+      <workItem from="1747690458809" duration="8750000" />
+      <workItem from="1747717058903" duration="3132000" />
+      <workItem from="1747748050546" duration="1808000" />
+      <workItem from="1747760691308" duration="447000" />
+      <workItem from="1747761572644" duration="965000" />
+      <workItem from="1747831868716" duration="4528000" />
+      <workItem from="1748038097553" duration="1800000" />
+      <workItem from="1749525102648" duration="1210000" />
+      <workItem from="1750082202870" duration="599000" />
+      <workItem from="1750253330764" duration="33000" />
+      <workItem from="1750253651477" duration="1210000" />
+      <workItem from="1750690428904" duration="599000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

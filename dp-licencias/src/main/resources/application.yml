@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: dp-licencias
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://root:123456@localhost:7070
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: reginaldomayhuire@upeu.edu.pe
+    password: 'ceeqpnfrwtlkqlpq'
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+feign:
+  client:
+    config:
+      microservicio-productos:
+        ribbon:
+          listOfServers: eureka://microservicio-productos
+      microservicio-movimientos:
+        ribbon:
+          listOfServers: eureka://microservicio-movimientos

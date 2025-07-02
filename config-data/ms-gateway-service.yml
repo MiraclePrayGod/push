@@ -1,0 +1,68 @@
+server:
+  port: 8085
+
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://localhost:8090/eureka
+      defaultZone: ${EUREKA_URI:http://localhost:8090/eureka}
+  instance:
+    #hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+
+      discovery:
+        locator:
+          enable: true
+      routes:
+        - id: ms-cliente-service
+          uri: lb://ms-cliente-service
+          predicates:
+            - Path=/clientes/**
+        - id: ms-producto-service
+          uri: lb://ms-producto-service
+          predicates:
+            - Path=/productos/**
+        - id: ms-venta-service
+          uri: lb://ms-venta-service
+          predicates:
+            - Path=/ventas/**
+        - id: ms-usuario-service
+          uri: lb://ms-usuario-service
+          predicates:
+            - Path=/usuarios/**
+        - id: ms-pago-service
+          uri: lb://ms-pago-service
+          predicates:
+            - Path=/pagos/**
+        - id: ms-facturacion-service
+          uri: lb://ms-facturacion-service
+          predicates:
+            - Path=/facturas/**
+        - id: dp-licencias
+          uri: lb://dp-licencias
+          predicates:
+            - Path=/licencias/**
+        - id: ms-pago-comprobantes
+          uri: lb://ms-pago-service
+          predicates:
+            - Path=/comprobantes/**
+        - id: ms-reportes
+          uri: lb://ms-reportes
+          predicates:
+            - Path=/reportes/**
+
+

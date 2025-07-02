@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ms-facturacion-service
+  profiles:
+    active: development
+  config:
+    import: optional:configserver:http://root:123456@localhost:7070
+
+factura:
+  emisor:
+    ruc: 12345678901
+    nombre: "ContaCloud SAC"
+    direccion: "Av. Ejemplo 123"
+    telefono: "987654321"
+    email: "contacto@empresa.com"

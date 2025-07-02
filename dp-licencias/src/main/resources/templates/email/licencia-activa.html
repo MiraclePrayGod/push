@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Licencia Activada</title>
+    <style>
+        /* Reset básico */
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+            Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            color: #0a2f5a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            box-shadow: 0 22px 45px rgba(10, 47, 90, 0.25);
+            padding: 45px 55px 55px 55px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: saturate(180%) blur(15px);
+            -webkit-backdrop-filter: saturate(180%) blur(15px);
+        }
+        /* Detalle decorativo - círculo azul cielo */
+        .accent-circle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 65px;
+            height: 65px;
+            background: #3b82f6; /* azul vibrante */
+            border-radius: 50%;
+            box-shadow: 0 8px 18px rgba(59, 130, 246, 0.6);
+            z-index: 1;
+        }
+        h1 {
+            font-weight: 800;
+            font-size: 36px;
+            letter-spacing: -0.03em;
+            margin-bottom: 25px;
+            color: #0a2f5a;
+            position: relative;
+            z-index: 2;
+            line-height: 1.15;
+        }
+        /* Destacar "TuEmpresa" en azul vibrante */
+        h1 .highlight {
+            color: #3b82f6;
+        }
+        p {
+            font-weight: 500;
+            font-size: 18.5px;
+            line-height: 1.7;
+            color: #1c3a6fcc;
+            margin: 18px 0;
+            position: relative;
+            z-index: 2;
+            text-align: justify;
+            max-width: 510px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .codigo-box {
+            margin: 36px auto;
+            padding: 28px 38px;
+            border-radius: 14px;
+            background: #e0f0ff;
+            border: 2px solid #3b82f6;
+            font-weight: 700;
+            font-size: 21px;
+            color: #1c3a6f;
+            letter-spacing: 0.015em;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.85);
+            user-select: text;
+            display: inline-block;
+            min-width: 280px;
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+        .codigo-label {
+            font-weight: 900;
+            margin-right: 12px;
+            color: #2a4d8f;
+            display: inline-block;
+            min-width: 105px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 52px;
+            padding: 16px 70px;
+            font-weight: 800;
+            font-size: 20px;
+            color: #fff;
+            background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+            border-radius: 18px;
+            text-decoration: none;
+            box-shadow: 0 14px 28px rgba(59, 130, 246, 0.8);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 2;
+            user-select: none;
+            letter-spacing: 0.03em;
+        }
+        .button:hover, .button:focus {
+            background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+            box-shadow: 0 18px 35px rgba(37, 99, 235, 0.85);
+            outline: none;
+        }
+        .footer {
+            margin-top: 85px;
+            font-size: 14px;
+            color: #1c3a6f88;
+            font-weight: 400;
+            user-select: none;
+            position: relative;
+            z-index: 2;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 30px 25px 40px 25px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 16.5px;
+                max-width: 100%;
+            }
+            .codigo-box {
+                width: 100%;
+                min-width: auto;
+            }
+            .button {
+                font-size: 18px;
+                padding: 14px 50px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .footer {
+                font-size: 12px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container" role="main" aria-label="Correo de activación de licencia">
+    <div class="accent-circle" aria-hidden="true"></div>
+    <h1>¡Bienvenido a la experiencia <span class="highlight">ContaCloud</span>!</h1>
+    <p>Querido <span th:text="${cliente}">[cliente]</span>,</p>
+    <p>Nos llena de alegría y orgullo comunicarle que su licencia ha sido activada exitosamente. A partir de este momento, cuenta con una poderosa herramienta que revolucionará la manera en la que gestiona su contabilidad y negocios.</p>
+    <div class="codigo-box" role="region" aria-label="Credenciales de licencia">
+        <div><span class="codigo-label">Código:</span><span th:text="${codigo}">[CODIGO]</span></div>
+        <div style="margin-top: 14px;"><span class="codigo-label">Contraseña:</span><span th:text="${contrasena}">[CONTRASEÑA]</span></div>
+    </div>
+    <p>Gracias por confiar en <strong>TuEmpresa</strong>. Su decisión de elegirnos es el primer paso hacia un futuro más organizado, eficiente y exitoso. Estamos comprometidos en apoyarlo en cada desafío y brindarle las mejores soluciones.</p>
+    <p>Prepárese para experimentar un software intuitivo y potente, diseñado para simplificar su trabajo y maximizar sus resultados. ¡El control total está a su alcance!</p>
+    <a href="https://www.contaCloud.com" target="_blank" rel="noopener" class="button" aria-label="Visite el sitio web de TuEmpresa">Explorar Mi Cuenta</a>
+    <div class="footer">
+        &copy; 2025 ContaCloud. Todos los derechos reservados.
+    </div>
+</div>
+</body>
+</html>
+```
