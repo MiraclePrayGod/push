@@ -15,5 +15,5 @@ public interface PagoService {
     Pago obtener(Long id);
     String obtenerNombreComprobantePorPagoId(Long pagoId);
     List<Pago> listarPagosTransferencia();
-
+    List<Pago> listarPagos();
 }

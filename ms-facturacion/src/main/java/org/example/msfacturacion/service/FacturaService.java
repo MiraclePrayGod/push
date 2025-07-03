@@ -13,5 +13,5 @@ public interface FacturaService {
     FacturaDTO emitir(FacturaRequest request);
     List<FacturaDTO> listarPorCliente(Long clienteId);
     FacturaDTO convertirADTO(Factura factura);
-
+    List<FacturaDTO> listarFacturas();
 }

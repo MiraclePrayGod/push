@@ -105,5 +105,10 @@ public class PagoServiceImpl implements PagoService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<Pago> listarPagos() {
+        return pagoRepository.findAll();
+    }
+
 
 }

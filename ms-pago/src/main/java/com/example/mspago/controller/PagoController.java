@@ -26,15 +26,14 @@ import java.nio.file.Paths;
 public class PagoController {
 
     @Autowired private PagoService pagoService;
-
-    @Autowired
-    private StorageService storageService;
+    @Autowired private StorageService storageService;
 
     /** Lista ventas SIN_PAGAR de un cliente */
     @GetMapping("/pendientes/{clienteId}")
     public ResponseEntity<List<VentaDTO>> pendientes(@PathVariable Long clienteId) {
         return ResponseEntity.ok(pagoService.ventasPendientes(clienteId));
     }
+
     @GetMapping("/{id}/comprobante-imagen")
     public ResponseEntity<Resource> obtenerComprobanteImagen(@PathVariable Long id) {
         try {
@@ -44,8 +43,8 @@ public class PagoController {
                 return ResponseEntity.notFound().build();
             }
 
-            // Ruta completa al archivo en disco (igual a WebConfig)
-            Path rutaArchivo = Paths.get("E:/oficial examen dad 2025/proyectodad/ms-pago/comprobantes")
+            // Ruta completa al archivo en disco (utilizando la nueva ruta)
+            Path rutaArchivo = Paths.get("C:/Users/touse/Documents/push/ms-pago/comprobantes")
                     .resolve(nombreArchivo)
                     .normalize();
 
@@ -54,7 +53,7 @@ public class PagoController {
                 return ResponseEntity.notFound().build();
             }
 
-            // Definir content type según extensión del archivo
+            // Definir el content-type según la extensión del archivo
             String contentType = "application/octet-stream";
             if (nombreArchivo.toLowerCase().endsWith(".png")) contentType = "image/png";
             else if (nombreArchivo.toLowerCase().endsWith(".jpg") || nombreArchivo.toLowerCase().endsWith(".jpeg"))
@@ -69,6 +68,7 @@ public class PagoController {
             return ResponseEntity.internalServerError().build();
         }
     }
+
     @GetMapping("/{id}/comprobante")
     public ResponseEntity<String> obtenerNombreComprobante(@PathVariable Long id) {
         String nombreArchivo = pagoService.obtenerNombreComprobantePorPagoId(id);
@@ -81,8 +81,7 @@ public class PagoController {
         return ResponseEntity.ok(archivos);
     }
 
-
-        /** Registra un pago (multipart para comprobante opcional) */
+    /** Registra un pago (multipart para comprobante opcional) */
     @PostMapping(consumes = {"multipart/form-data"})
     public ResponseEntity<Pago> pagar(
             @RequestPart("data") PagoRequest request,
@@ -101,6 +100,11 @@ public class PagoController {
     public ResponseEntity<List<Pago>> listarPagosTransferencia() {
         return ResponseEntity.ok(pagoService.listarPagosTransferencia());
     }
-    
-}
 
+    /** Lista todos los pagos */
+    @GetMapping
+    public ResponseEntity<List<Pago>> listarPagos() {
+        return ResponseEntity.ok(pagoService.listarPagos());
+    }
+
+}

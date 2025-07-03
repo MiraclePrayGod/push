@@ -15,7 +15,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/russbell456/proyectodad.git # ruta del repositorio git
+          uri: https://github.com/MiraclePrayGod/push.git # ruta del repositorio git
           searchPaths: config-data
           default-label: main
   security:

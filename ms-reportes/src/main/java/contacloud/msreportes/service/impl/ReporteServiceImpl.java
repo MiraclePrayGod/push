@@ -24,7 +24,12 @@ public class ReporteServiceImpl implements ReporteService {
     private final PagoFeign pagoFeign;
     private final LicenciaFeign licenciaFeign;
 
-    public ReporteServiceImpl(VentaFeign ventaFeign, ProductoFeign productoFeign, PagoFeign pagoFeign, LicenciaFeign licenciaFeign) {
+    public ReporteServiceImpl(
+            VentaFeign ventaFeign,
+            ProductoFeign productoFeign,
+            PagoFeign pagoFeign,
+            LicenciaFeign licenciaFeign
+    ) {
         this.ventaFeign = ventaFeign;
         this.productoFeign = productoFeign;
         this.pagoFeign = pagoFeign;
@@ -40,15 +45,17 @@ public class ReporteServiceImpl implements ReporteService {
             Row headerVentas = ventasSheet.createRow(0);
             headerVentas.createCell(0).setCellValue("ID");
             headerVentas.createCell(1).setCellValue("ClienteID");
-            headerVentas.createCell(2).setCellValue("Total");
-            headerVentas.createCell(3).setCellValue("Estado");
+            headerVentas.createCell(2).setCellValue("FechaVenta");
+            headerVentas.createCell(3).setCellValue("Total");
+            headerVentas.createCell(4).setCellValue("Estado");
             int rowIdx = 1;
             for (VentaDTO v : ventas) {
                 Row row = ventasSheet.createRow(rowIdx++);
                 row.createCell(0).setCellValue(v.getId());
                 row.createCell(1).setCellValue(v.getClienteId());
-                row.createCell(2).setCellValue(v.getTotal());
-                row.createCell(3).setCellValue(v.getEstado());
+                row.createCell(2).setCellValue(v.getFechaVenta() != null ? v.getFechaVenta().toString() : "");
+                row.createCell(3).setCellValue(v.getTotal());
+                row.createCell(4).setCellValue(v.getEstado());
             }
 
             // Hoja de Productos
@@ -57,13 +64,17 @@ public class ReporteServiceImpl implements ReporteService {
             Row headerProd = productosSheet.createRow(0);
             headerProd.createCell(0).setCellValue("ID");
             headerProd.createCell(1).setCellValue("Nombre");
-            headerProd.createCell(2).setCellValue("Stock");
+            headerProd.createCell(2).setCellValue("Descripcion");
+            headerProd.createCell(3).setCellValue("Stock");
+            headerProd.createCell(4).setCellValue("PrecioUnitario");
             int prodIdx = 1;
             for (ProductoDTO p : productos) {
                 Row row = productosSheet.createRow(prodIdx++);
                 row.createCell(0).setCellValue(p.getId());
                 row.createCell(1).setCellValue(p.getNombre());
-                row.createCell(2).setCellValue(p.getStock());
+                row.createCell(2).setCellValue(p.getDescripcion());
+                row.createCell(3).setCellValue(p.getStock());
+                row.createCell(4).setCellValue(p.getPrecioUnitario());
             }
 
             // Hoja de Pagos
@@ -72,15 +83,19 @@ public class ReporteServiceImpl implements ReporteService {
             Row headerPago = pagosSheet.createRow(0);
             headerPago.createCell(0).setCellValue("ID");
             headerPago.createCell(1).setCellValue("VentaID");
-            headerPago.createCell(2).setCellValue("Monto");
+            headerPago.createCell(2).setCellValue("ClienteID");
             headerPago.createCell(3).setCellValue("Metodo");
+            headerPago.createCell(4).setCellValue("Monto");
+            headerPago.createCell(5).setCellValue("FechaPago");
             int pagoIdx = 1;
             for (PagoDTO p : pagos) {
                 Row row = pagosSheet.createRow(pagoIdx++);
                 row.createCell(0).setCellValue(p.getId());
                 row.createCell(1).setCellValue(p.getVentaId());
-                row.createCell(2).setCellValue(p.getMonto());
+                row.createCell(2).setCellValue(p.getClienteId());
                 row.createCell(3).setCellValue(p.getMetodo());
+                row.createCell(4).setCellValue(p.getMonto());
+                row.createCell(5).setCellValue(p.getFechaPago() != null ? p.getFechaPago().toString() : "");
             }
 
             // Hoja de Licencias
@@ -89,15 +104,19 @@ public class ReporteServiceImpl implements ReporteService {
             Row headerLic = licenciasSheet.createRow(0);
             headerLic.createCell(0).setCellValue("ID");
             headerLic.createCell(1).setCellValue("ClienteID");
-            headerLic.createCell(2).setCellValue("Tipo");
-            headerLic.createCell(3).setCellValue("Estado");
+            headerLic.createCell(2).setCellValue("TipoLicencia");
+            headerLic.createCell(3).setCellValue("FechaActivacion");
+            headerLic.createCell(4).setCellValue("FechaExpiracion");
+            headerLic.createCell(5).setCellValue("Estado");
             int licIdx = 1;
             for (LicenciaDTO l : licencias) {
                 Row row = licenciasSheet.createRow(licIdx++);
                 row.createCell(0).setCellValue(l.getId());
                 row.createCell(1).setCellValue(l.getClienteId());
                 row.createCell(2).setCellValue(l.getTipoLicencia());
-                row.createCell(3).setCellValue(l.getEstado());
+                row.createCell(3).setCellValue(l.getFechaActivacion() != null ? l.getFechaActivacion().toString() : "");
+                row.createCell(4).setCellValue(l.getFechaExpiracion() != null ? l.getFechaExpiracion().toString() : "");
+                row.createCell(5).setCellValue(l.getEstado());
             }
 
             workbook.write(os);

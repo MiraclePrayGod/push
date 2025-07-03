@@ -22,6 +22,7 @@ public class Licencia {
     @Transient
     private ClienteDto clienteDto;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "licencia_id")
     private List<LicenciaDetalle> detalles;
 
     public Licencia() {

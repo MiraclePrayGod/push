@@ -54,7 +54,14 @@ public class FacturaController {
     }
 
     /* ────────────────────────────────────────────────────────────────
-       4. Descargar la factura en formato PDF                         */
+       4. Listar todas las facturas                                   */
+    @GetMapping
+    public List<FacturaDTO> listarFacturas() {
+        return facturaService.listarFacturas();
+    }
+
+    /* ────────────────────────────────────────────────────────────────
+       5. Descargar la factura en formato PDF                         */
     @GetMapping("/{id}/pdf")
     public ResponseEntity<byte[]> descargarFacturaPdf(@PathVariable Long id) {
 

@@ -119,7 +119,40 @@ public class FacturaServiceImpl implements FacturaService {
                 .collect(Collectors.toList());
     }
 
-
+    // Nuevo: listar todas las facturas
+    @Override
+    public List<FacturaDTO> listarFacturas() {
+        List<Factura> facturas = facturaRepo.findAll();
+        List<FacturaDTO> resultado = new ArrayList<>();
+        for (Factura factura : facturas) {
+            FacturaDTO facturaDTO = convertirADTO(factura);
+            // Asignar datos completos del cliente
+            if (factura.getClienteId() != null) {
+                DatosClienteDTO cliente = clienteFeign.obtener(factura.getClienteId()).getBody();
+                facturaDTO.setCliente(cliente);
+            }
+            // Asignar datos adicionales a cada detalle
+            if (facturaDTO.getItems() != null && factura.getDetalles() != null) {
+                List<FacturaDetalle> detallesEntity = factura.getDetalles();
+                List<FacturaDetalleDTO> detallesDTO = facturaDTO.getItems();
+                for (int i = 0; i < detallesDTO.size(); i++) {
+                    FacturaDetalleDTO detalleDTO = detallesDTO.get(i);
+                    FacturaDetalle detalleEntity = detallesEntity.get(i);
+                    detalleDTO.setCantidad(detalleEntity.getCantidad());
+                    detalleDTO.setDescripcion(detalleEntity.getDescripcion());
+                    detalleDTO.setIgv(detalleEntity.getIgv());
+                    detalleDTO.setNombreProducto(detalleEntity.getNombreProducto());
+                    detalleDTO.setPrecioUnitario(detalleEntity.getPrecioUnitario());
+                    detalleDTO.setSubtotal(detalleEntity.getSubtotal());
+                    detalleDTO.setTotalLinea(detalleEntity.getTotalLinea());
+                    detalleDTO.setVentaId(detalleEntity.getVentaId());
+                    // Si necesitas más campos, agrégalos aquí
+                }
+            }
+            resultado.add(facturaDTO);
+        }
+        return resultado;
+    }
 
     // Nuevo: convertir entidad Factura a DTO (para PDF y controller)
     @Override
@@ -136,23 +169,30 @@ public class FacturaServiceImpl implements FacturaService {
         dto.setTotalImpuestos(f.getTotalImpuestos());
         dto.setTotal(f.getTotal());
 
-        List<FacturaDetalleDTO> detalleDTOs = f.getDetalles().stream().map(d -> {
-            FacturaDetalleDTO dd = new FacturaDetalleDTO();
-            dd.setNombreProducto(d.getNombreProducto());
-            dd.setDescripcion(d.getDescripcion());
-            dd.setCantidad(d.getCantidad());
-            dd.setPrecioUnitario(d.getPrecioUnitario());
-            dd.setSubtotal(d.getSubtotal());
-            dd.setIgv(d.getIgv());
-            dd.setTotalLinea(d.getTotalLinea());
-            return dd;
-        }).toList();
+        List<FacturaDetalleDTO> detalleDTOs = new ArrayList<>();
+        if (f.getDetalles() != null) {
+            for (FacturaDetalle d : f.getDetalles()) {
+                FacturaDetalleDTO dd = new FacturaDetalleDTO();
+                dd.setNombreProducto(d.getNombreProducto());
+                dd.setDescripcion(d.getDescripcion());
+                dd.setCantidad(d.getCantidad());
+                dd.setPrecioUnitario(d.getPrecioUnitario());
+                dd.setSubtotal(d.getSubtotal());
+                dd.setIgv(d.getIgv());
+                dd.setTotalLinea(d.getTotalLinea());
+                dd.setVentaId(d.getVentaId());
+                // Si agregas más campos en FacturaDetalleDTO, asígnalos aquí
+                detalleDTOs.add(dd);
+            }
+        }
         dto.setItems(detalleDTOs);
 
+        // Asignar datos completos del cliente si están disponibles
         DatosClienteDTO cli = new DatosClienteDTO();
         cli.setId(f.getClienteId());
-        cli.setRucDni(f.getRucDniCliente());
-        cli.setNombre(f.getNombreCliente());
+        cli.setNombres(f.getNombreCliente()); // Usar nombre completo si es empresa
+        cli.setNumeroDocumento(f.getRucDniCliente());
+        // Si tienes más campos de cliente en la entidad, asígnalos aquí
         dto.setCliente(cli);
 
         return dto;
