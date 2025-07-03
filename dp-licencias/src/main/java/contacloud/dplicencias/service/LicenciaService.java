@@ -16,5 +16,6 @@ public interface LicenciaService {
     List<Licencia> buscarIdCLiente(Integer ClienteId);
     Licencia renovarLicencia(Integer id);
     Licencia licenciaExpirada(Integer id);
+    List<Licencia> buscarPorDocumentoCorreoNombre(String valor);
 
 }

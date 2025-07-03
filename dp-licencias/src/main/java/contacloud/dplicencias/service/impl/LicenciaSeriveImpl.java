@@ -295,4 +295,22 @@ public class LicenciaSeriveImpl implements LicenciaService {
             return licenciaRepository.save(licencia);
     }
 
+    @Override
+    public List<Licencia> buscarPorDocumentoCorreoNombre(String valor) {
+        List<Licencia> todas = listar();
+        String filtro = valor == null ? "" : valor.trim().toLowerCase();
+        List<Licencia> resultado = new ArrayList<>();
+        for (Licencia licencia : todas) {
+            if (licencia.getClienteDto() != null) {
+                String nombres = licencia.getClienteDto().getNombres() != null ? licencia.getClienteDto().getNombres().toLowerCase() : "";
+                String correo = licencia.getClienteDto().getCorreo() != null ? licencia.getClienteDto().getCorreo().toLowerCase() : "";
+                String numeroDocumento = licencia.getClienteDto().getNumeroDocumento() != null ? licencia.getClienteDto().getNumeroDocumento().toLowerCase() : "";
+                if (nombres.contains(filtro) || correo.contains(filtro) || numeroDocumento.contains(filtro)) {
+                    resultado.add(licencia);
+                }
+            }
+        }
+        return resultado;
+    }
+
 }

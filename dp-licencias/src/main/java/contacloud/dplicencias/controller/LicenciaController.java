@@ -63,6 +63,12 @@ public class LicenciaController {
         }
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Licencia>> buscarPorDocumentoCorreoNombre(@RequestParam("valor") String valor) {
+        List<Licencia> licencias = licenciaService.buscarPorDocumentoCorreoNombre(valor);
+        return ResponseEntity.ok(licencias);
+    }
+
 }
 
 

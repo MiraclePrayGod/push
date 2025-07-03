@@ -12,11 +12,13 @@ import org.example.msfacturacion.repository.FacturaRepository;
 import org.example.msfacturacion.service.FacturaService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -103,11 +105,21 @@ public class FacturaServiceImpl implements FacturaService {
     // Método 3: listar facturas por cliente
     @Override
     public List<FacturaDTO> listarPorCliente(Long clienteId) {
+        DatosClienteDTO cliente = clienteFeign.obtener(clienteId).getBody();
+        if (cliente == null) {
+            throw new RuntimeException("Cliente no encontrado");
+        }
         return facturaRepo.findByClienteId(clienteId)
                 .stream()
-                .map(this::convertirADTO)
-                .toList();
+                .map(factura -> {
+                    FacturaDTO facturaDTO = convertirADTO(factura); // Solo pasa la factura
+                    facturaDTO.setCliente(cliente);  // Asigna el cliente manualmente
+                    return facturaDTO;
+                })
+                .collect(Collectors.toList());
     }
+
+
 
     // Nuevo: convertir entidad Factura a DTO (para PDF y controller)
     @Override

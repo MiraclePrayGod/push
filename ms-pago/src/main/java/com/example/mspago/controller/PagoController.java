@@ -96,5 +96,11 @@ public class PagoController {
     public ResponseEntity<Pago> obtener(@PathVariable Long id) {
         return ResponseEntity.ok(pagoService.obtener(id));
     }
+
+    @GetMapping("/transferencias")
+    public ResponseEntity<List<Pago>> listarPagosTransferencia() {
+        return ResponseEntity.ok(pagoService.listarPagosTransferencia());
+    }
+    
 }
 

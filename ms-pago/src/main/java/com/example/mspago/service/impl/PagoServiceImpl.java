@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PagoServiceImpl implements PagoService {
@@ -94,6 +95,14 @@ public class PagoServiceImpl implements PagoService {
     public Pago obtener(Long id) {
         return pagoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pago no encontrado con ID: " + id));
+    }
+
+    @Override
+    public List<Pago> listarPagosTransferencia() {
+        return pagoRepository.findAll()
+                .stream()
+                .filter(p -> "TRANSFERENCIA".equalsIgnoreCase(p.getMetodo()))
+                .collect(Collectors.toList());
     }
 
 

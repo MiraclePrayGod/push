@@ -49,7 +49,7 @@ public class FacturaController {
     /* ────────────────────────────────────────────────────────────────
        3. Listar facturas emitidas por cliente                        */
     @GetMapping("/cliente/{clienteId}")
-    public List<FacturaDTO> porCliente(@PathVariable Long clienteId) {
+    public List<FacturaDTO> listarPorCliente(@PathVariable Long clienteId) {
         return facturaService.listarPorCliente(clienteId);
     }
 

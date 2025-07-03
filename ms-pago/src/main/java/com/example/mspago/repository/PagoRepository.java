@@ -8,4 +8,5 @@ import java.util.List;
 public interface PagoRepository extends JpaRepository<Pago, Long> {
 
     List<Pago> findByClienteId(Long clienteId);
+    List<Pago> findByMetodoIgnoreCase(String metodo);
 }
